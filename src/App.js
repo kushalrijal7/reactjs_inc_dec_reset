@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { div } from 'prelude-ls';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  state = {
+    count: 0,
+  }
+  handleInc=()=>{
+    this.setState({count: this.state.count+1});
+  }
+  handleDec=()=>{
+    this.setState({count:this.state.count-1});
+  }
+  handleRes=()=>{
+    this.setState({count:0});
+  }
+    render(){
+    return(
+      <div>
+        <h1>The Counter value is: {this.state.count}</h1>
+        <button onClick={this.handleInc}>Increment</button>
+        <button onClick={this.handleDec}>Decrement</button>
+        <button onClick={this.handleRes}>Reset</button>
+      </div>
+    )
+  }
 }
-
 export default App;
